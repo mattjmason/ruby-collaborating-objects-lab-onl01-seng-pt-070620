@@ -9,8 +9,8 @@ class MP3Importer
   def files 
     @files = Dir.glob(self.path+"/*.mp3")
     @files.collect do |file| file.slice!(0..@path.length)
-    @files 
-  end 
+  end
+  @files
   end 
 
   
