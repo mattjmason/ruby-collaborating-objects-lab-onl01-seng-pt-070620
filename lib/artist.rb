@@ -20,8 +20,8 @@ class Artist
   
   def self.find_or_create_by_name(name)
     artist = @@all.detect do |artist| artist.name == name 
-    artist = artist.nil? ? Artist.new(name) : artist
     end 
+    artist = artist.nil? ? Artist.new(name) : artist
   end 
   
   def print_songs
