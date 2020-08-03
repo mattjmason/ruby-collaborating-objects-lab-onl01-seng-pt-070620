@@ -7,8 +7,18 @@ class MP3Importer
   end 
   
   def files 
-    @files = Dir.
+    @files = Dir.glob(self.path+"/*.mp3")
+    @files.collect do |file| file.slice!(0..@path.length)
+    end 
+    @files 
+  end 
+
   
+  def import 
+    self.files.each do |filename|
+      song = Song.new_by_filename(filename)
+    end 
+  end 
   
   
 end 
