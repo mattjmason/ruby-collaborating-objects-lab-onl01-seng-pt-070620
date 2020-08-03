@@ -4,11 +4,30 @@ class Artist
   
   @@all = []
   
-  def initialize 
-    
-    
-    
-    
+  def initialize(name)
+    self.name = name 
+    self.songs = []
+    save
   end 
+  
+  def add_song(song)
+    self.songs << song 
+  end 
+  
+  def self.find_or_create_by_name(name)
+    artist = @@all.detect do |artist| artist.name == name 
+    artist = artist.nil? ? Artist.new(name) : artist
+    end 
+  end 
+  
+  def print_songs
+    self.songs.each do |song| puts "#{song.name}"
+    end 
+  end 
+
+def self.all 
+  @@all  
+end 
+
   
 end 
